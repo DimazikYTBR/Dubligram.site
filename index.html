@@ -16,19 +16,43 @@
             overflow-x: hidden;
         }
 
-        header {
-        width: 100%;
-        max-width: 1200px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 40px;
-        background: #fff;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
+header {
+    width: 100%;
+    max-width: 100%; /* Растягиваем на всю ширину для эффекта */
+    display: flex;
+    justify-content: space-around; /* Распределяем элементы как на скрине */
+    align-items: center;
+    padding: 15px 0;
+    
+    /* ЭФФЕКТ СТЕКЛА ДЛЯ ШАПКИ */
+    background: rgba(255, 255, 255, 0.7); /* Прозрачный белый */
+    backdrop-filter: blur(12px); /* Размытие фона */
+    -webkit-backdrop-filter: blur(12px); /* Для Safari/iOS */
+    
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Тонкая полоска снизу */
+}
 
+/* Навигация как на фото */
+.nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 17px;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #86868b; /* Мягкий серый при наведении как у Apple */
+}
     .nav-links { display: flex; gap: 30px; align-items: center; }
     .nav-links a { text-decoration: none; color: #000; font-weight: 500; font-size: 16px; }
 
