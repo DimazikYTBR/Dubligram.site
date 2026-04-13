@@ -20,9 +20,9 @@
 
 header {
     width: 100%;
-    height: 60px; /* Фиксированная высота — залог отсутствия багов */
+    height: 70px; /* Немного увеличим высоту для баланса */
     display: flex;
-    justify-content: center; /* Центрируем содержимое */
+    justify-content: center;
     align-items: center;
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(15px);
@@ -30,28 +30,44 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* border-bottom УБРАН */
 }
 
-/* 2. Контейнер внутри шапки, чтобы ничего не липло к краям экрана */
 .header-container {
     width: 100%;
-    max-width: 1200px; /* Тот же размер, что у твоего контента ниже */
+    max-width: 1100px; /* Чуть уже, чтобы элементы были ближе к центру */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 20px;
 }
 
-/* 3. Центрируем меню Use */
+/* Центрируем Use */
 .nav-links {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
+    gap: 35px;
     align-items: center;
 }
 
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+/* Кнопка Get Plus в стиле капсулы */
+.btn-wallet {
+    background: #000;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 25px; /* Настоящая капсула */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+}
 /* 4. Исправляем выпадающее меню */
 .dropdown-content {
     display: none;
@@ -126,12 +142,6 @@ header {
     .menu-item .title { font-weight: 600; color: #000; font-size: 15px; }
     .menu-item .desc { font-size: 13px; color: #86868b; }
 
-    /* Капсула справа */
-    .btn-wallet {
-        background: #000; color: #fff; padding: 10px 24px;
-        border-radius: 20px; text-decoration: none; font-weight: 600;
-    }
-
     .logo-container {
         display: flex;
         align-items: center;
@@ -155,39 +165,6 @@ header {
         font-weight: 800;
         font-size: 24px;
         letter-spacing: -1px;
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 30px;
-    }
-
-    .nav-links a {
-        text-decoration: none;
-        color: #000;
-        font-weight: 500;
-        font-size: 16px;
-        transition: 0.2s;
-    }
-
-    .nav-links a:hover {
-        color: #24A1DE;
-    }
-
-    .btn-wallet {
-        background: #000;
-        color: #fff;
-        padding: 10px 24px;
-        border-radius: 20px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 15px;
-        transition: 0.3s;
-    }
-
-    .btn-wallet:hover {
-        transform: scale(1.05);
-        background: #333;
     }
 
     /* Для мобилок прячем меню, чтобы не ломалось */
