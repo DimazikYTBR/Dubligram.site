@@ -57,6 +57,7 @@
 .btn-meet2 {
     display: inline-block;
     background: #ffffff;
+    color: #000000;
     padding: 10px 22px;
     border-radius: 25px; /* Настоящая капсула */
     text-decoration: none;
@@ -228,14 +229,19 @@ header {
             margin: 0;
         }
 
-        .gradient-text {
-            background: linear-gradient(90deg, #0047ff 0%, #00d1ff 100%);
-            font-size: 84px; /* Огромный заголовок */
-            font-weight: 800;
-            line-height: 0.9;
-            letter-spacing: -4px;
-            margin-bottom: 30px;
-        }
+.gradient-text {
+    background: linear-gradient(90deg, #0047ff 0%, #00d1ff 100%);
+    
+    /* Добавь это: */
+    -webkit-background-clip: text; /* Обрезает фон по контуру букв */
+    -webkit-text-fill-color: transparent; /* Делает сами буквы прозрачными, чтобы был виден фон */
+    
+    font-size: 84px;
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -4px;
+    margin-bottom: 30px;
+}
 
         .line-two {
             display: block;
@@ -325,7 +331,7 @@ header {
 
 
 <div class="plus-hero">
-    <span class="plus-title">Dubligram</span><span class="gradient-text">Plus</span>
+    <span class="plus-title">Dubligram </span><span class="gradient-text">Plus</span>
     <p class="plus-subtitle">
         Exclusive features for the next generation of users. 
         Get your "Invisible" status and unique badges today.
