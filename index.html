@@ -236,6 +236,64 @@ header {
         .card:hover { transform: translateY(-5px); background: #f0f0f2; }
         .card h3 { font-size: 1.6rem; margin: 0 0 10px; }
         .card p { color: #424245; font-size: 1.1rem; line-height: 1.5; margin: 0; }
+
+        .footer-separator {
+            height: 1px;
+            width: 100%;
+            /* Мягкий градиент, как на вашем изображении */
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+            margin-bottom: 30px; /* Отступ под линией */
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between; /* Распределяем колонки равномерно */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex-wrap: wrap; /* Чтобы колонки переносились на маленьких экранах */
+        }
+
+        .footer-left, .footer-column, .footer-socials {
+            margin-bottom: 20px; /* Отступ между блоками на мобильных */
+        }
+
+        .footer-left p {
+            font-size: 12px;
+            margin: 5px 0;
+        }
+
+        .footer-column h4 {
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column a, .footer-container a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover, .footer-container a:hover {
+            color: #fff;
+        }
+
+        .footer-socials a {
+            display: inline-block;
+            width: 34px;
+            height: 34px;
+            background-color: #333; /* Заглушка для иконок */
+            border-radius: 50%;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
