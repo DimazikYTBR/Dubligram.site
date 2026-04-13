@@ -16,15 +16,81 @@
             overflow-x: hidden;
         }
 
-        header {
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            justify-content: space-between;
-            padding: 40px;
-            box-sizing: border-box;
-        }
-        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
+    header {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo-circle {
+        width: 32px;
+        height: 32px;
+        background: #24A1DE;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 18px;
+    }
+
+    .logo-text {
+        font-weight: 800;
+        font-size: 24px;
+        letter-spacing: -1px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #000;
+        font-weight: 500;
+        font-size: 16px;
+        transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+        color: #24A1DE;
+    }
+
+    .btn-wallet {
+        background: #000;
+        color: #fff;
+        padding: 10px 24px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: 0.3s;
+    }
+
+    .btn-wallet:hover {
+        transform: scale(1.05);
+        background: #333;
+    }
+
+    /* Для мобилок прячем меню, чтобы не ломалось */
+    @media (max-width: 850px) {
+        .nav-links { display: none; }
+    }
 
         .hero {
             text-align: center;
@@ -89,26 +155,30 @@
         .card:hover { transform: translateY(-5px); background: #f0f0f2; }
         .card h3 { font-size: 1.6rem; margin: 0 0 10px; }
         .card p { color: #424245; font-size: 1.1rem; line-height: 1.5; margin: 0; }
-
-        @media (max-width: 1000px) {
-            .main-title { font-size: 3.5rem; }
-            .line-two { font-size: 3.2rem; }
-            .features { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">Dubligram</div>
-    </header>
+<header>
+    <div class="logo-container">
+        <div class="logo-circle">D</div>
+        <div class="logo-text">Dubligram</div>
+    </div>
+    
+    <nav class="nav-links">
+        <a href="#use">Use</a>
+    </nav>
+
+    <a href="ССЫЛКА_НА_APK" class="btn-wallet">Get Plus</a>
+</header>
 
     <div class="hero">
         <h1 class="main-title">
             <span class="gradient-text">Dubligram</span><span style="color: #000;">Fast</span>
             <span class="line-two">unofficial Telegram client</span>
+            
         </h1>
-        <a href="ССЫЛКА_НА_APK" class="btn-get">Download APK</a>
+        <a href="ССЫЛКА_НА_APK" class="btn-get">Get Dubligram</a>
     </div>
 
     <!-- ТЕ САМЫЕ БЛОКИ -->
