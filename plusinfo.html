@@ -9,9 +9,12 @@
         body {
     background-color: #000000; /* Настоящий черный фон */
     color: #ffffff; /* Весь текст теперь белый */
-    margin: 0;
-    font-family: 'Inter', sans-serif; /* Тот самый шрифт TON */
-    -webkit-font-smoothing: antialiased;
+            margin: 0;
+            font-family: 'Inter', -apple-system, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
 }
         
 .plus-hero {
@@ -91,19 +94,6 @@ header {
     font-size: 16px;
     transition: 0.2s;
 }
-
-/* Кнопка Get Plus в стиле капсулы */
-.btn-wallet {
-    background: #000;
-    color: #fff;
-    padding: 10px 22px;
-    border-radius: 25px; /* Настоящая капсула */
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: 0.3s;
-}
-.btn-wallet:hover { transform: scale(1.05); }
 /* 4. Исправляем выпадающее меню */
 .dropdown-content {
     display: none;
@@ -312,7 +302,7 @@ header {
         </div>
     </nav>
 
-        <a href="plusinfo.html" class="btn-wallet">Get Plus</a>
+        <a href="plusinfo.html" class="btn-meet">Get Plus</a>
     </div>
 </header>
 
