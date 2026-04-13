@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dubligram | Dublikata Studio</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+* { box-sizing: border-box; }
+
+header {
+    width: 100%;
+    height: 70px; /* Немного увеличим высоту для баланса */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* border-bottom УБРАН */
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1100px; /* Чуть уже, чтобы элементы были ближе к центру */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Центрируем Use */
+.nav-links {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.plus-hero {
+    padding: 120px 60px; /* Большие отступы, чтобы был "воздух" */
+    max-width: 900px;
+}
+
+.plus-title {
+    font-size: 84px; /* Огромный заголовок */
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -4px;
+    margin-bottom: 30px;
+}
+
+.plus-subtitle {
+    font-size: 20px;
+    color: #86868b; /* Серый текст как на скрине */
+    max-width: 500px;
+    line-height: 1.4;
+    margin-bottom: 40px;
+}
+
+/* Белая кнопка-капсула */
+.btn-meet {
+    display: inline-block;
+    background: #ffffff;
+    color: #000000;
+    padding: 16px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-meet:hover {
+    transform: scale(1.05);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+/* Кнопка Get Plus в стиле капсулы */
+.btn-wallet {
+    background: #000;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 25px; /* Настоящая капсула */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.btn-wallet:hover { transform: scale(1.05); }
+/* 4. Исправляем выпадающее меню */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Вылетает ровно из-под хедера */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    min-width: 260px;
+}
+
+.dropdown:hover .dropdown-content { display: block; }
+
+/* 3. Чтобы меню не пропадало, когда ведешь мышку от кнопки к нему */
+.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 25px; /* "Мостик" для мышки */
+}
+
+/* Навигация как на фото */
+.nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 17px;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #86868b; /* Мягкий серый при наведении как у Apple */
+}
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    .nav-links a { text-decoration: none; color: #000; font-weight: 500; font-size: 16px; }
+
+    /* СТИЛИ ВЫПАДАЮЩЕГО МЕНЮ */
+    .dropdown { position: relative; display: inline-block; }
+
+/* Эффект при наведении на пункты внутри стекла */
+.menu-item:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Еле заметное выделение */
+}
+
+    /* Появление при наведении */
+    .dropdown:hover .dropdown-content { display: block; }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 12px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .menu-item .icon { font-size: 20px; }
+    .menu-item .title { font-weight: 600; color: #000; font-size: 15px; }
+    .menu-item .desc { font-size: 13px; color: #86868b; }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo-circle {
+        width: 32px;
+        height: 32px;
+        background: #24A1DE;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 18px;
+    }
+
+    .logo-text {
+        font-weight: 800;
+        font-size: 24px;
+        letter-spacing: -1px;
+    }
+
+    /* Для мобилок прячем меню, чтобы не ломалось */
+    @media (max-width: 850px) {
+        .nav-links { display: none; }
+    }
+
+        /* ЗАГОЛОВОК ПО РЕФЕРЕНСУ */
+        .main-title {
+            font-size: 5.5rem; 
+            font-weight: 800;
+            letter-spacing: -4px;
+            line-height: 1.0;
+            margin: 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #0047ff 0%, #00d1ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-right: 20px;
+        }
+
+        .line-two {
+            display: block;
+            font-size: 5.2rem;
+            color: #000;
+            margin-top: 10px;
+            letter-spacing: -3px;
+        }
+
+        /* БЛОКИ (КАРТОЧКИ) */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            padding: 40px 20px 100px;
+        }
+        .card {
+            background: #f5f5f7;
+            padding: 40px;
+            border-radius: 30px;
+            text-align: left;
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); background: #f0f0f2; }
+        .card h3 { font-size: 1.6rem; margin: 0 0 10px; }
+        .card p { color: #424245; font-size: 1.1rem; line-height: 1.5; margin: 0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo-container">
+            <div class="logo-circle">D</div>
+            <div class="logo-text">Dubligram</div>
+        </div>
+        
+<nav class="nav-links">
+        <div class="dropdown">
+            <a href="#" class="dropbtn">Use</a>
+            <!-- ТО САМОЕ ВЫПАДАЮЩЕЕ МЕНЮ -->
+            <div class="dropdown-content">
+                <div class="menu-item">
+                    <div class="icon">📦</div>
+                    <div>
+                        <div class="title">Get Dubligram</div>
+                        <div class="desc">Download the latest APK</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="icon">💎</div>
+                    <div>
+                        <div class="title">Dubligram Plus</div>
+                        <div class="desc">Unlock premium features</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="icon">👻</div>
+                    <div>
+                        <div class="title">Ghost Mode</div>
+                        <div class="desc">Browse incognito</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+        <a href="#" class="btn-wallet">Get Plus</a>
+    </div>
+</header>
+
+
+<div class="plus-hero">
+    <h1 class="plus-title">Dubligram Plus — <br>Alpha Announcement</h1>
+    <p class="plus-subtitle">
+        Exclusive features for the next generation of users. 
+        Get your "Invisible" status and unique badges today.
+    </p>
+    <a href="#" class="btn-meet">Meet Dubligram Plus</a>
+</div>
+
+    <!-- ТЕ САМЫЕ БЛОКИ -->
+    <div class="features">
+        <div class="card">
+            <h3>Ghost Mode 👻</h3>
+            <p>Read messages incognito. Invisible status for Plus users.</p>
+        </div>
+    </div>
+
+</body>
+</html>
