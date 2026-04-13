@@ -16,7 +16,7 @@
             overflow-x: hidden;
         }
 
-    header {
+        header {
         width: 100%;
         max-width: 1200px;
         display: flex;
@@ -27,6 +27,53 @@
         position: sticky;
         top: 0;
         z-index: 1000;
+    }
+
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    .nav-links a { text-decoration: none; color: #000; font-weight: 500; font-size: 16px; }
+
+    /* СТИЛИ ВЫПАДАЮЩЕГО МЕНЮ */
+    .dropdown { position: relative; display: inline-block; }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff;
+        min-width: 280px;
+        box-shadow: 0px 20px 40px rgba(0,0,0,0.1);
+        border-radius: 16px;
+        padding: 10px;
+        z-index: 1;
+        border: 1px solid #f0f0f0;
+        margin-top: 15px;
+    }
+
+    /* Появление при наведении */
+    .dropdown:hover .dropdown-content { display: block; }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 12px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .menu-item:hover { background-color: #f5f5f7; }
+
+    .menu-item .icon { font-size: 20px; }
+    .menu-item .title { font-weight: 600; color: #000; font-size: 15px; }
+    .menu-item .desc { font-size: 13px; color: #86868b; }
+
+    /* Капсула справа */
+    .btn-wallet {
+        background: #000; color: #fff; padding: 10px 24px;
+        border-radius: 20px; text-decoration: none; font-weight: 600;
     }
 
     .logo-container {
@@ -166,10 +213,39 @@
     </div>
     
     <nav class="nav-links">
-        <a href="#use">Use</a>
+        <div class="dropdown">
+            <a href="#" class="dropbtn">Use</a>
+            <!-- ТО САМОЕ ВЫПАДАЮЩЕЕ МЕНЮ -->
+            <div class="dropdown-content">
+                <div class="menu-item">
+                    <div class="icon">📦</div>
+                    <div>
+                        <div class="title">Get Dubligram</div>
+                        <div class="desc">Download the latest APK</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="icon">💎</div>
+                    <div>
+                        <div class="title">Dubligram Plus</div>
+                        <div class="desc">Unlock premium features</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="icon">👻</div>
+                    <div>
+                        <div class="title">Ghost Mode</div>
+                        <div class="desc">Browse incognito</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#learn">Learn</a>
+        <a href="#build">Build</a>
+        <a href="https://t.me">Newsroom</a>
     </nav>
 
-    <a href="ССЫЛКА_НА_APK" class="btn-wallet">Get Plus</a>
+    <a href="#" class="btn-wallet">Get Plus</a>
 </header>
 
     <div class="hero">
