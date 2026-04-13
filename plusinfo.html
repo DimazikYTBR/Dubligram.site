@@ -212,6 +212,15 @@ header {
         letter-spacing: -1px;
     }
 
+    .logo-text2 {
+        background: linear-gradient(90deg, #0047ff 0%, #00d1ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        font-size: 24px;
+        letter-spacing: -1px;
+    }
+
     /* Для мобилок прячем меню, чтобы не ломалось */
     @media (max-width: 850px) {
         .nav-links { display: none; }
@@ -237,20 +246,6 @@ header {
     font-weight: 800;
     line-height: 0.9;
     letter-spacing: -4px;
-    margin-bottom: 30px;
-}
-
-        .gradient-text2 {
-    background: linear-gradient(90deg, #0047ff 0%, #00d1ff 100%);
-    
-    /* Добавь это: */
-    -webkit-background-clip: text; /* Обрезает фон по контуру букв */
-    -webkit-text-fill-color: transparent; /* Делает сами буквы прозрачными, чтобы был виден фон */
-    
-    font-size: 24px;
-    font-weight: 800;
-    line-height: 0.9;
-    letter-spacing: -1px;
     margin-bottom: 30px;
 }
         
@@ -304,7 +299,7 @@ header {
         <div class="logo-container">
             <img src="dubnew2.png" alt="Dubligram" style="width: 32px; height: 32px; border-radius: 8px;">
             <div class="logo-text">Dubligram </div>
-            <div class="gradient-text2">Plus</div>
+            <div class="logo-text2">Plus</div>
         </div>
         
 <nav class="nav-links">
