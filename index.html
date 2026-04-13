@@ -3,46 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dubligram | Developed by Dublikata Studio</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <title>Dubligram | Next Gen Client</title>
     <style>
-        body { font-family: 'Inter', sans-serif; margin: 0; background: #fff; color: #000; text-align: center; }
-        nav { display: flex; justify-content: space-between; padding: 20px 10% align-items: center; }
-        .logo { font-weight: bold; font-size: 24px; color: #0088cc; }
-        .hero { padding: 100px 20px; }
-        h1 { font-size: 64px; margin: 0; background: linear-gradient(90deg, #0088cc, #00c6ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        p { font-size: 20px; color: #666; margin: 20px 0; }
-        .btn { background: #000; color: #fff; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block; margin: 10px; transition: 0.3s; }
-        .btn:hover { transform: scale(1.05); }
-        .grid { display: flex; justify-content: center; gap: 20px; padding: 50px 10%; flex-wrap: wrap; }
-        .card { background: #f4f4f7; padding: 30px; border-radius: 20px; width: 250px; text-align: left; transition: 0.3s; }
-        .card:hover { background: #eef0f5; }
-        .card h3 { margin-top: 0; }
+        body {
+            background: #050505;
+            color: white;
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .hero {
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #0088cc, #00ffcc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        p {
+            color: #888;
+            font-size: 1.2rem;
+            max-width: 500px;
+        }
+        .btn-main {
+            background: white;
+            color: black;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+        .btn-main:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 136, 204, 0.5);
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 60px;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 24px;
+            transition: 0.3s;
+        }
+        .card:hover {
+            border: 1px solid #0088cc;
+            background: rgba(0, 136, 204, 0.05);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #0088cc;
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">D Dublikata</div>
-        <div><a href="https://t.me" class="btn" style="padding: 10px 20px;">Join Chat</a></div>
-    </nav>
     <div class="hero">
         <h1>Dubligram</h1>
-        <p>Instant design, ghost mode, and more.<br>Powered by Dublikata Studio.</p>
-        <a href="#" class="btn">Get Dubligram</a>
-        <a href="https://t.me" style="color: #666; text-decoration: none; margin-left: 20px;">Support</a>
+        <p>Больше чем клиент. Твой дизайн, твои правила, твоя свобода.</p>
+        <br><br>
+        <a href="ТВОЯ_ССЫЛКА_НА_APK" class="btn-main">Скачать Beta v1.0</a>
     </div>
-    <div class="grid">
+
+    <div class="features">
         <div class="card">
-            <h3>iOS Design 🎨</h3>
-            <p>Эксклюзивная капсула и нижний топбар для твоего Android.</p>
+            <h3>iOS Capsule 💊</h3>
+            <p>Эксклюзивная отрисовка поля ввода через Canvas API. Тот самый вайб на твоем Android.</p>
         </div>
         <div class="card">
             <h3>Ghost Mode 👻</h3>
-            <p>Читай сообщения незаметно. Статус "невидимка" для Plus юзеров.</p>
+            <p>Читай сообщения незаметно. Статус "невидимка" для Plus пользователей.</p>
         </div>
         <div class="card">
-            <h3>Fast & Stable ⚡</h3>
-            <p>Собрано на базе легендарного билда 6666 с оптимизацией памяти.</p>
+            <h3>Powered by 6GB ⚡</h3>
+            <p>Собрано на легендарном билде с оптимизацией памяти. Летает даже там, где другие тормозят.</p>
         </div>
     </div>
 </body>
