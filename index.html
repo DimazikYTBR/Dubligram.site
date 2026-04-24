@@ -33,6 +33,32 @@ header {
     /* border-bottom УБРАН */
 }
 
+.donate-button {
+    display: block;
+    margin-top: 20px;
+    padding: 12px 0;
+    width: 100%;
+    background: #007aff; /* Фирменный синий Apple */
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 12px; /* Мягкое скругление iOS */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+}
+
+.donate-button:hover {
+    background: #005bb5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
+}
+
+.donate-button:active {
+    transform: scale(0.98);
+}
+
 .cta-group {
     display: flex;       /* Включаем гибкий контейнер */
     gap: 20px;           /* ТО САМОЕ РАССТОЯНИЕ между кнопками */
@@ -347,6 +373,7 @@ header {
                         <div class="title">The Titanium Goal</div>
                         <div class="desc">Current: 8,000 RUB</div>
                         <div class="desc">Target: 85,000 RUB</div>
+                        <a href="https://www.donationalerts.com/r/dimazikhih" target="_blank" class="donate-button">Support the Dream ❤️</a>
                     </div>
                 </div>
             </div>
