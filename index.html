@@ -197,18 +197,19 @@ border-radius: 20px;
 
     /* Для мобилок прячем меню, чтобы не ломалось */
 @media (max-width: 850px) {
-    .nav-links {
+        .nav-links {
+        position: fixed !important;
+        
+        /* ГЛАВНОЕ ИСПРАВЛЕНИЕ ТУТ */
+        top: auto !important;      /* Отключаем привязку к верху */
+        bottom: 30px !important;   /* Прибиваем к низу */
+        
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        
+        /* Твои стили блюра и капсулы */
         display: flex !important;
-        position: fixed; /* Обязательно */
-        
-        /* ВОТ ТУТ ОШИБКА: проверь эти две строки */
-        bottom: 30px !important; /* Отступ СНИЗУ */
-        top: auto !important;    /* Отменяем верх, если он там затесался */
-        
-        left: 50%;
-        transform: translateX(-50%);
-        
-        /* Всё остальное оставляем (блюр, фон, радиус) */
+        flex-direction: row !important; /* Чтобы кнопки были в ряд */
         width: 280px;
         height: 65px;
         background: rgba(255, 255, 255, 0.08);
