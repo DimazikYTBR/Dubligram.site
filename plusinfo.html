@@ -16,6 +16,17 @@
             align-items: center;
             overflow-x: hidden;
 }
+
+header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
         
 .plus-hero {
             text-align: center;
@@ -89,13 +100,15 @@ header {
     /* border-bottom УБРАН */
 }
 
-.header-container {
+header {
     width: 100%;
-    max-width: 1100px; /* Чуть уже, чтобы элементы были ближе к центру */
+    height: 70px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav-links {
