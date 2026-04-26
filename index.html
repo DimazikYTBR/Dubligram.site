@@ -195,52 +195,61 @@ border-radius: 20px;
         letter-spacing: -1px;
     }
 
-    /* Для мобилок прячем меню, чтобы не ломалось */
+.nav-links2 {
+    display: none;
+}
+
 @media (max-width: 850px) {
-        .nav-links {
+    /* Прячем старые элементы, чтобы не мешались сверху */
+    .nav-links, .dropbtn, .dropdown {
+        display: none !important;
+    }
+
+    /* Активируем твой новый остров */
+    .nav-links2 {
+        display: flex !important;
         position: fixed !important;
-        
-        /* ГЛАВНОЕ ИСПРАВЛЕНИЕ ТУТ */
-        top: auto !important;      /* Отключаем привязку к верху */
-        bottom: 30px !important;   /* Прибиваем к низу */
-        
+        bottom: 30px !important; /* ТУДО! ВНИЗ! */
         left: 50% !important;
         transform: translateX(-50%) !important;
         
-        /* Твои стили блюра и капсулы */
-        display: flex !important;
-        flex-direction: row !important; /* Чтобы кнопки были в ряд */
+        /* Стиль Dublikata Studio */
         width: 280px;
         height: 65px;
-        background: rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.08); /* Стеклышко */
         backdrop-filter: blur(25px) saturate(180%);
         -webkit-backdrop-filter: blur(25px) saturate(180%);
-        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 999px; /* Сочная капсула */
+        
         justify-content: space-around;
         align-items: center;
-        z-index: 10000;
+        z-index: 100000; /* Поверх всего */
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        padding: 0 10px;
     }
 
-    /* 2. Твои кнопки внутри острова */
-    .dropbtn {
-        background: none !important; /* Убираем серый фон на мобилке */
-        color: #fff !important;
-        font-size: 12px !important;
-        padding: 5px !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    /* Стили кнопок внутри .nav-links2 */
+    .island-item {
+        color: #fff;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: 0.3s;
+        -webkit-tap-highlight-color: transparent;
     }
 
-    /* Делаем эффект нажатия для твоих кнопок */
-    .dropbtn:active {
+    /* Эффект нажатия пальцем */
+    .island-item:active {
         transform: scale(0.85);
         opacity: 0.7;
     }
 
-    /* 3. Скрываем выпадающее меню, чтобы не мешалось снизу */
-    .dropdown-content {
-        display: none !important;
+    /* Подсветка активной кнопки */
+    .island-item.active {
+        color: #007AFF; /* Твой синий Apple */
     }
 }
 
@@ -386,6 +395,11 @@ border-radius: 20px;
             <img src="dubnew22.png" alt="Dubligram" style="width: 32px; height: 32px; border-radius: 8px;">
             <div class="logo-text">Dubligram</div>
         </div>
+
+<nav class="nav-links2">
+    <a href="#" class="island-item active">Use</a>
+    <a href="https://donationalerts.com" target="_blank" class="island-item">Goal</a>
+</nav>
         
 <nav class="nav-links">
         <div class="dropdown">
