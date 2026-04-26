@@ -197,28 +197,26 @@ border-radius: 20px;
 
     /* Для мобилок прячем меню, чтобы не ломалось */
 @media (max-width: 850px) {
-    /* 1. Превращаем родительский контейнер меню в нижний остров */
     .nav-links {
-        display: flex !important; /* Показываем его (ты его скрывал) */
-        position: fixed;
-        bottom: 25px;
+        display: flex !important;
+        position: fixed; /* Обязательно */
+        
+        /* ВОТ ТУТ ОШИБКА: проверь эти две строки */
+        bottom: 30px !important; /* Отступ СНИЗУ */
+        top: auto !important;    /* Отменяем верх, если он там затесался */
+        
         left: 50%;
         transform: translateX(-50%);
         
-        /* Стили острова */
+        /* Всё остальное оставляем (блюр, фон, радиус) */
         width: 280px;
         height: 65px;
         background: rgba(255, 255, 255, 0.08);
         backdrop-filter: blur(25px) saturate(180%);
         -webkit-backdrop-filter: blur(25px) saturate(180%);
-        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 999px;
-        
-        /* Центровка кнопок внутри */
         justify-content: space-around;
         align-items: center;
-        padding: 0 15px;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         z-index: 10000;
     }
 
