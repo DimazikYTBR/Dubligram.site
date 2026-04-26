@@ -205,6 +205,34 @@ border-radius: 20px;
         display: none !important;
     }
 
+    @keyframes island-drop {
+    0% {
+        /* В самом начале это маленькая точка за пределами экрана */
+        transform: translate(-50%, 100px) scale(0.1);
+        width: 60px;
+        opacity: 0;
+        border-radius: 50%;
+    }
+    40% {
+        /* Капля вылетает и становится видимой круглой точкой */
+        transform: translate(-50%, -20px) scale(1.1);
+        opacity: 1;
+        border-radius: 50%;
+    }
+    100% {
+        /* В конце растягивается в твою финальную капсулу */
+        transform: translate(-50%, 0) scale(1);
+        width: 280px; /* Твоя ширина острова */
+        border-radius: 999px;
+    }
+}
+
+.nav-links2 {
+    /* Применяем анимацию при появлении */
+    animation: island-drop 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    overflow: hidden; /* Чтобы контент внутри не вылезал во время растягивания */
+}
+
     /* Активируем твой новый остров */
     .nav-links2 {
         display: flex !important;
@@ -231,7 +259,7 @@ border-radius: 20px;
 
     /* Стили кнопок внутри .nav-links2 */
     .island-item {
-        color: #fff;
+        color: #000;
         text-decoration: none;
         font-size: 12px;
         font-weight: 700;
@@ -490,7 +518,7 @@ border-radius: 20px;
 
     <nav class="nav-links2">
     <a href="#" class="island-item active">Use</a>
-    <a href="https://donationalerts.com" target="_blank" class="island-item">Goal</a>
+    <a href="https://www.donationalerts.com/r/dimazikhih" target="_blank" class="island-item">Goal</a>
 </nav>
 
 <footer class="studio-footer">
