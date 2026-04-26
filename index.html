@@ -281,28 +281,19 @@ border-radius: 20px;
     }
 }
 
-        @media (max-width: 850px) {
-    h1 {
-        /* Уменьшаем размер, чтобы текст «дышал» */
-        font-size: 42px !important; 
-        
-        /* Плотно, по-эппловски, но без наездов букв друг на друга */
-        line-height: 1.1 !important; 
-        
-        /* Центрируем и добавляем отступы, чтобы не липло к краям */
-        text-align: center !important;
-        margin: 40px auto 20px auto !important;
-        padding: 0 15px !important;
-        
-        /* Чтобы слова не разрывались некрасиво */
-        word-wrap: break-word;
-    }
+@media (max-width: 850px) {
+          .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 600px;
+            padding: 40px 20px 100px;
+        }  
 
-    /* Если у тебя есть подзаголовок или текст под h1 */
-    h1 + p {
-        font-size: 18px !important;
-        opacity: 0.8;
-        padding: 0 20px;
+    .hero {
+        text-align: center;
+        padding: 60px 20px;
+        max-width: 600px;
     }
 }
 
