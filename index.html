@@ -101,24 +101,23 @@ header {
     border-radius: 24px;
 }
 
+.slider-container {
+    max-width: 1100px; /* Чтобы не разносило на весь экран */
+    margin: 40px auto;
+    overflow: hidden; /* Чтобы лишние слайды не торчали */
+    padding: 0 20px;
+}
+
 .slider-track {
     display: flex;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    gap: 20px;
-    padding: 0 10px;
+    gap: 30px; /* ВОТ ТУТ МАГИЯ: отступ между карточками */
 }
 
 .slide {
-    min-width: 80%; /* Чтобы было видно край следующего слайда, как на скрине */
-    height: 400px;
+    min-width: calc(100% - 40px); /* Чтобы карточка занимала почти всё место, но было видно край следующей */
     border-radius: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px;
+    /* Убедись, что у тебя стоит flex-shrink: 0, чтобы они не сжимались */
     flex-shrink: 0;
-    position: relative;
-    overflow: hidden;
 }
 
 .slide-content h2 {
