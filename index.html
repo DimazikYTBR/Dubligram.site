@@ -78,7 +78,8 @@ header {
 }
 
 .hidden-until-launch {
-    display: none !important;
+    display: none;
+    opacity: 0;
 }
 
 /* Анимация вылета кнопок (добавь этот класс своим скрытым кнопкам) */
@@ -666,7 +667,8 @@ function startTheChaos() {
         
         hiddenStuff.forEach((el, index) => {
             // Убираем скрывающий класс
-            el.style.display = 'block'; 
+            el.style.display = 'block';
+            el.style.setProperty('display', 'block', 'important');
             // Добавляем анимацию вылета (мы её прописывали во 2 шаге)
             el.style.animation = `flyIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1.2) forwards`;
             // Можно добавить задержку, чтобы карточки вылетали по очереди
