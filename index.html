@@ -678,7 +678,10 @@ window.onload = function() {
 </script>
 <div id="user-profile" style="display: none; align-items: center; gap: 10px;">
     <img id="user-photo" src="" style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #007AFF;">
-    <span id="user-name" style="font-weight: 600; font-size: 14px; color: #000;"></span>
+    <div style="display: flex; flex-direction: column;">
+        <span id="user-name" style="font-weight: 600; font-size: 14px; color: #000; line-height: 1.2;"></span>
+        <span id="user-joined" style="font-size: 10px; color: rgba(0,0,0,0.5);"></span>
+    </div>
 </div>
     </div>
 </header>
