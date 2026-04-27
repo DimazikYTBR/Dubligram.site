@@ -649,21 +649,22 @@ border-radius: 20px;
 
 <script type="text/javascript">
 function onTelegramAuth(user) {
+    localStorage.setItem('dubligram_user', JSON.stringify(user));
+    localStorage.setItem('dubligram_login_date', new Date().toLocaleDateString());
+
+    showUserProfile(user);
+}
+
+function showUserProfile(user) {
     const loginButton = document.querySelector('iframe#telegram-login-dubligram_bot') || document.querySelector('.tg-login-button');
     if (loginButton) loginButton.style.display = 'none';
 
     document.getElementById('user-name').innerText = user.first_name;
-    if (user.photo_url) {
-        document.getElementById('user-photo').src = user.photo_url;
-    } else {
+    document.getElementById('user-photo').src = user.photo_url || 'https://telegram.org';
+    document.getElementById('user-profile').style.display = 'flex';
 
-        document.getElementById('user-photo').src = 'https://telegram.org';
-    }
-
-    const profile = document.getElementById('user-profile');
-    profile.style.display = 'flex';
-
-    console.log('Titanium Director Logged In:', user);
+    const joinDate = localStorage.getItem('dubligram_login_date');
+    console.log(`Titanium User ${user.first_name} joined us on ${joinDate}`);
 }
 </script>
 <div id="user-profile" style="display: none; align-items: center; gap: 10px;">
