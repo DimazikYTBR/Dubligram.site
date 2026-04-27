@@ -145,20 +145,43 @@ header {
     margin-top: 20px;
 }
 
+.dots-island-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px; /* Отступ от слайдера */
+}
+
+.slider-dots {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    
+    /* Тот самый "стеклянный" остров */
+    background: rgba(255, 255, 255, 0.05); /* Легкий белый фон */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px; /* Идеальная капсула */
+    
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
 .dot {
     width: 8px;
     height: 8px;
-    background: #d1d1d6;
+    background: rgba(255, 255, 255, 0.3); /* Неактивные точки чуть тусклее */
     border-radius: 50%;
-    transition: all 0.3s ease; /* Плавный переход ширины */
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dot.active {
-    width: 20px; /* Растягиваем активную */
-    border-radius: 4px; /* Делаем капсулой */
-    background: #007aff;
+    width: 22px; /* Растягиваем активную */
+    border-radius: 6px;
+    background: #007aff; /* Твой фирменный синий */
+    box-shadow: 0 0 15px rgba(0, 122, 255, 0.5); /* Легкое свечение */
 }
-
 .cta-group {
     display: flex;       
     gap: 20px;           
@@ -671,10 +694,12 @@ border-radius: 20px;
     </div>
     
     <!-- Пагинация (точки как на скрине) -->
-<div class="slider-dots">
-    <div class="dot active" onclick="goToSlide(0)"></div>
-    <div class="dot" onclick="goToSlide(1)"></div>
-    <div class="dot" onclick="goToSlide(2)"></div>
+<div class="dots-island-container">
+    <div class="slider-dots">
+        <div class="dot active" onclick="goToSlide(0)"></div>
+        <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="dot" onclick="goToSlide(2)"></div>
+    </div>
 </div>
 </div>
 <div class="hidden-until-launch">
