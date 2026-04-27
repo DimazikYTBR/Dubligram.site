@@ -648,11 +648,28 @@ border-radius: 20px;
         data-onauth="onTelegramAuth(user)"></script>
 
 <script type="text/javascript">
-  function onTelegramAuth(user) {
-    alert('Привет, ' + user.first_name + '! Теперь ты можешь голосовать.');
-    console.log(user); 
-  }
+function onTelegramAuth(user) {
+    const loginButton = document.querySelector('iframe#telegram-login-dubligram_bot') || document.querySelector('.tg-login-button');
+    if (loginButton) loginButton.style.display = 'none';
+
+    document.getElementById('user-name').innerText = user.first_name;
+    if (user.photo_url) {
+        document.getElementById('user-photo').src = user.photo_url;
+    } else {
+
+        document.getElementById('user-photo').src = 'https://telegram.org';
+    }
+
+    const profile = document.getElementById('user-profile');
+    profile.style.display = 'flex';
+
+    console.log('Titanium Director Logged In:', user);
+}
 </script>
+<div id="user-profile" style="display: none; align-items: center; gap: 10px;">
+    <img id="user-photo" src="" style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #007AFF;">
+    <span id="user-name" style="font-weight: 600; font-size: 14px; color: #000;"></span>
+</div>
     </div>
 </header>
 
