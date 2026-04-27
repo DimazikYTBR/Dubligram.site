@@ -583,10 +583,6 @@ border-radius: 20px;
             margin-left: 10px;
         }
 
-        #user-name {
-    color: #ffffff !important;
-    font-weight: 700;
-}
     </style>
 </head>
 <body>
@@ -676,6 +672,20 @@ function showUserProfile(user) {
         }
     }, 100);
     setTimeout(() => clearInterval(hideBtn), 2000);
+}
+
+const nameEl = document.getElementById('user-name');
+if (nameEl) {
+    nameEl.innerText = user.first_name;
+    // Титановый закрепитель цвета:
+    nameEl.style.color = "#ffffff"; 
+    nameEl.style.setProperty('color', '#ffffff', 'important');
+}
+
+// И для даты тоже на всякий случай:
+const joinedEl = document.getElementById('user-joined');
+if (joinedEl) {
+    joinedEl.style.setProperty('color', 'rgba(255, 255, 255, 0.6)', 'important');
 }
 
 // При загрузке страницы
