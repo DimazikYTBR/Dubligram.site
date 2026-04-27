@@ -43,7 +43,28 @@ header {
     transition: all 0.5s ease;
 }
 
-#timer { color: #000 !important; }
+#timer {
+    font-size: 84px !important; /* Ультимативный размер */
+    font-weight: 900 !important;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+    font-variant-numeric: tabular-nums; /* Чтобы цифры не дергались */
+}
+
+@media (max-width: 850px) {
+    #timer { font-size: 48px !important; gap: 10px; } /* Подгонка под мобилки */
+}
+
+#timer-label {
+    font-size: 18px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    font-weight: 700;
+}
 
 /* Класс, который JS добавит 15 мая */
 .timer-shatter {
@@ -54,6 +75,10 @@ header {
     0% { transform: scale(1); filter: blur(0); }
     50% { transform: scale(1.2); filter: blur(2px); color: #ff3b30; } /* Вспышка красного */
     100% { transform: scale(0); opacity: 0; display: none; }
+}
+
+.hidden-until-launch {
+    display: none !important;
 }
 
 /* Анимация вылета кнопок (добавь этот класс своим скрытым кнопкам) */
@@ -542,7 +567,7 @@ border-radius: 20px;
     <p id="timer-label">ДО ЗАПУСКА DUBLIGRAM</p>
 </div>
 
-
+<div class="hidden-until-launch">
     <div class="hero">
         <h1 class="main-title">
             <span class="gradient-text">Dubligram</span><span style="color: #000;">Fast</span>
@@ -553,6 +578,7 @@ border-radius: 20px;
         <a href="https://t.me/dubligram" class="btn-get">Get Dubligram</a>
         <a href="https://t.me/dubligramChat" class="btn-get">Join Chat</a>
     </div>
+</div>
 
     <!-- ТЕ САМЫЕ БЛОКИ -->
     <div class="features">
@@ -581,6 +607,7 @@ border-radius: 20px;
             <p>Premium iOS-style interface is available for all users. No paywalls for the beauty you love.</p>
         </div>
     </div>
+</div>
 
     <nav class="nav-links2">
     <a href="#" class="island-item active">Use</a>
@@ -608,13 +635,13 @@ const interval = setInterval(() => {
     const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Выводим в HTML
+    // Выводим в HTML (убедись, что ID совпадают!)
     document.getElementById('days').innerText = d.toString().padStart(2, '0');
     document.getElementById('hours').innerText = h.toString().padStart(2, '0');
     document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
     document.getElementById('seconds').innerText = s.toString().padStart(2, '0');
 
-    // Если время вышло
+    // МОМЕНТ ИКС: Если время вышло (или уже прошло)
     if (distance < 0) {
         clearInterval(interval);
         startTheChaos();
@@ -622,18 +649,30 @@ const interval = setInterval(() => {
 }, 1000);
 
 function startTheChaos() {
-    const timer = document.getElementById('timer');
-    timer.classList.add('timer-shatter'); // Таймер "ломается"
+    // 1. Берем весь контейнер с таймером
+    const timerContainer = document.getElementById('countdown-container');
     
-    // Через 0.5 сек (после взрыва) показываем кнопки
+    // 2. Эффект взрыва: увеличиваем, блюрим и растворяем
+    timerContainer.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+    timerContainer.style.transform = 'scale(2)';
+    timerContainer.style.filter = 'blur(20px)';
+    timerContainer.style.opacity = '0';
+
     setTimeout(() => {
-        // Тут ID или классы твоих кнопок, которые должны вылететь
-        const buttons = document.querySelectorAll('.hidden-until-launch');
-        buttons.forEach(btn => {
-            btn.style.display = 'block';
-            btn.classList.add('fly-in');
+        timerContainer.style.display = 'none';
+
+        // 3. Находим все элементы, которые мы спрятали классом .hidden-until-launch
+        const hiddenStuff = document.querySelectorAll('.hidden-until-launch');
+        
+        hiddenStuff.forEach((el, index) => {
+            // Убираем скрывающий класс
+            el.style.display = 'block'; 
+            // Добавляем анимацию вылета (мы её прописывали во 2 шаге)
+            el.style.animation = `flyIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1.2) forwards`;
+            // Можно добавить задержку, чтобы карточки вылетали по очереди
+            el.style.animationDelay = `${index * 0.1}s`;
         });
-    }, 500);
+    }, 800);
 }
 </script>
 </body>
