@@ -656,36 +656,20 @@ function onTelegramAuth(user) {
 }
 
 function showUserProfile(user) {
-    console.log("Запускаю профиль для:", user.first_name);
+    document.getElementById('user-name').innerText = user.first_name;
+    document.getElementById('user-joined').innerText = 'Joined: ' + localStorage.getItem('dubligram_login_date');
+    document.getElementById('user-profile').style.display = 'flex';
 
-    if (!localStorage.getItem('dubligram_login_date')) {
-        const today = new Date().toLocaleDateString();
-        localStorage.setItem('dubligram_login_date', today);
-        console.log("Дата сохранена:", today);
+    if (user.photo_url) {
+        const img = new Image();
+        img.src = user.photo_url;
+        img.onload = () => {
+            document.getElementById('user-photo').src = user.photo_url;
+        };
+        img.onerror = () => {
+            document.getElementById('user-photo').src = 'https://telegram.org';
+        };
     }
-
-    const nameEl = document.getElementById('user-name');
-    const dateEl = document.getElementById('user-joined');
-    const photoEl = document.getElementById('user-photo');
-
-    if (nameEl) nameEl.innerText = user.first_name;
-    if (dateEl) dateEl.innerText = "Joined: " + localStorage.getItem('dubligram_login_date');
-    if (photoEl) photoEl.src = user.photo_url || 'https://telegram.org';
-
-    const profileBox = document.getElementById('user-profile');
-    if (profileBox) {
-        profileBox.style.setProperty('display', 'flex', 'important');
-        console.log("Блок профиля отображен!");
-    }
-
-    const hideBtn = setInterval(() => {
-        const btn = document.querySelector('iframe[id^="telegram-login"]') || document.querySelector('.tg-login-button');
-        if (btn) {
-            btn.style.display = 'none';
-            clearInterval(hideBtn);
-        }
-    }, 100);
-    setTimeout(() => clearInterval(hideBtn), 5000);
 }
 
 // При загрузке страницы
