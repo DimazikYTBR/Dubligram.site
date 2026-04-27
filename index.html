@@ -774,6 +774,17 @@ function startTheChaos() {
         });
     }, 800);
 }
+
+    let currentSlide = 0;
+const track = document.querySelector('.slider-track');
+const dots = document.querySelectorAll('.dot');
+
+function updateSlider(index) {
+    // Сдвигаем трек на ширину слайда + gap
+    track.style.transform = `translateX(-${index * 85}%)`; 
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+}
 </script>
 </body>
 </html>
