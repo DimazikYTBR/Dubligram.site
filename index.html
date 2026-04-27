@@ -92,6 +92,75 @@ header {
     100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
+.slider-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto;
+    overflow: hidden; /* Скрываем лишние слайды */
+    position: relative;
+    border-radius: 24px;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 20px;
+    padding: 0 10px;
+}
+
+.slide {
+    min-width: 80%; /* Чтобы было видно край следующего слайда, как на скрине */
+    height: 400px;
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-content h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.slide-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #d1d1d6;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.dot.active {
+    width: 20px; /* Растянутая точка как на скрине */
+    background: #007aff;
+    border-radius: 4px;
+}
+
 .cta-group {
     display: flex;       
     gap: 20px;           
@@ -566,6 +635,36 @@ border-radius: 20px;
     <span id="days">00</span>:<span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
 </div>
     <p id="timer-label">ДО ЗАПУСКА DUBLIGRAM</p>
+</div>
+
+<div class="slider-container">
+    <div class="slider-track">
+        <!-- Карточка 1 -->
+        <div class="slide" style="background: linear-gradient(135deg, #2af5ff 0%, #2196f3 100%);">
+            <div class="slide-content">
+                <h2>Instant transfers</h2>
+                <p>Making crypto simple, fast and fun.</p>
+                <a href="#" class="slide-btn">Get a Wallet</a>
+            </div>
+            <img src="твой_дизайн_1.png" alt="" class="slide-img">
+        </div>
+        <!-- Карточка 2 (для примера) -->
+        <div class="slide" style="background: #efeff4;">
+            <div class="slide-content" style="color: #000;">
+                <h2>Free to set up</h2>
+                <p>Simple to use for everyone.</p>
+                <a href="#" class="slide-btn" style="background: #007aff; color: #fff;">Explore</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Пагинация (точки как на скрине) -->
+    <div class="slider-dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="pause-btn">||</div>
+    </div>
 </div>
 
 <div class="hidden-until-launch">
