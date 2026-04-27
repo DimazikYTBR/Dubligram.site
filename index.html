@@ -227,6 +227,36 @@ border-radius: 20px;
     }
 }
 
+/* Анимация, когда остров уходит обратно в каплю и вниз */
+@keyframes island-hide {
+    0% {
+        transform: translate(-50%, 0) scale(1);
+        width: 280px;
+        opacity: 1;
+        border-radius: 999px;
+    }
+    60% {
+        transform: translate(-50%, -10px) scale(1.1); /* Небольшой "прыжок" перед уходом */
+        border-radius: 50%;
+        width: 60px;
+    }
+    100% {
+        transform: translate(-50%, 150px) scale(0.1); /* Улетает вниз в точку */
+        opacity: 0;
+    }
+}
+
+/* Настройки для десктопа (экран больше 851px) */
+@media (min-width: 851px) {
+    .nav-links2 {
+        /* Применяем анимацию исчезновения */
+        animation: island-hide 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        /* Указываем pointer-events: none, чтобы невидимый остров не мешал кликать */
+        pointer-events: none;
+    }
+}
+
+
 .nav-links2 {
     /* Применяем анимацию при появлении */
     animation: island-drop 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -278,22 +308,6 @@ border-radius: 20px;
     /* Подсветка активной кнопки */
     .island-item.active {
         color: #007AFF; /* Твой синий Apple */
-    }
-}
-
-@media (max-width: 850px) {
-          .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 600px;
-            padding: 40px 20px 100px;
-        }  
-
-    .hero {
-        text-align: center;
-        padding: 60px 20px;
-        max-width: 600px;
     }
 }
 
