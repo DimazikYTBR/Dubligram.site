@@ -656,9 +656,6 @@ function onTelegramAuth(user) {
 }
 
 function showUserProfile(user) {
-    const initial = user.first_name ? user.first_name.charAt(0).toUpperCase() : 'D';
-
-    document.getElementById('user-initial').innerText = initial;
     document.getElementById('user-name').innerText = user.first_name;
     document.getElementById('user-joined').innerText = 'Joined: ' + (localStorage.getItem('dubligram_login_date') || new Date().toLocaleDateString());
 
@@ -671,7 +668,7 @@ function showUserProfile(user) {
             clearInterval(hideBtn);
         }
     }, 100);
-    setTimeout(() => clearInterval(hideBtn), 3000);
+    setTimeout(() => clearInterval(hideBtn), 2000);
 }
 
 // При загрузке страницы
