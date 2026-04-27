@@ -43,13 +43,7 @@ header {
     transition: all 0.5s ease;
 }
 
-#timer {
-    font-size: 48px;
-    font-weight: 800;
-    font-family: 'Inter', sans-serif;
-    color: #fff;
-    letter-spacing: 2px;
-}
+#timer { color: #000 !important; }
 
 /* Класс, который JS добавит 15 мая */
 .timer-shatter {
@@ -542,9 +536,9 @@ border-radius: 20px;
 </header>
 
     <div id="countdown-container">
-    <div id="timer">
-        <span id="days">00</span>:<span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
-    </div>
+<div id="timer">
+    <span id="days">00</span>:<span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+</div>
     <p id="timer-label">ДО ЗАПУСКА DUBLIGRAM</p>
 </div>
 
@@ -642,6 +636,5 @@ function startTheChaos() {
     }, 500);
 }
 </script>
-
 </body>
 </html>
