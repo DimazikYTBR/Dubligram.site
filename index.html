@@ -642,6 +642,19 @@ border-radius: 20px;
      </nav>
 
         <a href="plusinfo.html" class="btn-wallet">Get Plus</a>
+        <script async src="https://telegram.org" 
+        data-telegram-login="dubligram_bot"
+        data-size="large" 
+        data-onauth="onTelegramAuth(user)" 
+        data-request-access="write"></script>
+
+<script type="text/javascript">
+  function onTelegramAuth(user) {
+    alert('Привет, ' + user.first_name + '! Теперь ты можешь голосовать.');
+    // Тут мы сохраняем данные юзера и проверяем его статус
+    console.log(user); 
+  }
+</script>
     </div>
 </header>
 
