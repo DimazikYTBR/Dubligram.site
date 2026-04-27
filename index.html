@@ -789,15 +789,25 @@ function startTheChaos() {
     }, 800);
 }
 
-    let currentSlide = 0;
-const track = document.querySelector('.slider-track');
-const dots = document.querySelectorAll('.dot');
+let currentSlide = 0;
 
-function updateSlider(index) {
-    // Сдвигаем трек на ширину слайда + gap
-    track.style.transform = `translateX(-${index * 85}%)`; 
+function goToSlide(index) {
+    const track = document.querySelector('.slider-track');
+    const dots = document.querySelectorAll('.dot');
+    
+    currentSlide = index;
+    
+    // Высчитываем сдвиг. 
+    // Если карточка 85% + gap 2%, попробуй поставить 87
+    const offset = index * 87; 
+    
+    // ПРИМЕНЯЕМ СДВИГ
+    track.style.transform = `translateX(-${offset}%)`;
+    
+    // ОБНОВЛЯЕМ ТОЧКИ
     dots.forEach(dot => dot.classList.remove('active'));
     dots[index].classList.add('active');
+}
 }
 </script>
 </body>
