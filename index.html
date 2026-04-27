@@ -671,12 +671,12 @@ border-radius: 20px;
     </div>
     
     <!-- Пагинация (точки как на скрине) -->
-    <div class="slider-dots">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="pause-btn">||</div>
-    </div>
+<div class="slider-dots">
+    <div class="dot active" onclick="goToSlide(0)"></div>
+    <div class="dot" onclick="goToSlide(1)"></div>
+    <div class="dot" onclick="goToSlide(2)"></div>
+    <div class="pause-btn" onclick="toggleAutoPlay()">||</div>
+</div>
 </div>
 
 <div class="hidden-until-launch">
