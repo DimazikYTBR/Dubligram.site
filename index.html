@@ -37,6 +37,41 @@ header {
     z-index: 1000;
 }
 
+#countdown-container {
+    text-align: center;
+    margin: 40px 0;
+    transition: all 0.5s ease;
+}
+
+#timer {
+    font-size: 48px;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+/* Класс, который JS добавит 15 мая */
+.timer-shatter {
+    animation: shatter 0.5s forwards;
+}
+
+@keyframes shatter {
+    0% { transform: scale(1); filter: blur(0); }
+    50% { transform: scale(1.2); filter: blur(2px); color: #ff3b30; } /* Вспышка красного */
+    100% { transform: scale(0); opacity: 0; display: none; }
+}
+
+/* Анимация вылета кнопок (добавь этот класс своим скрытым кнопкам) */
+.fly-in {
+    animation: flyIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1.2) forwards;
+}
+
+@keyframes flyIn {
+    0% { transform: translateY(100px) scale(0); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
 .cta-group {
     display: flex;       
     gap: 20px;           
@@ -506,6 +541,13 @@ border-radius: 20px;
     </div>
 </header>
 
+    <div id="countdown-container">
+    <div id="timer">
+        <span id="days">00</span>:<span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+    </div>
+    <p id="timer-label">ДО ЗАПУСКА DUBLIGRAM</p>
+</div>
+
 
     <div class="hero">
         <h1 class="main-title">
@@ -558,6 +600,48 @@ border-radius: 20px;
         <p class="brand">Design by <span class="studio-name">Dublikata Studio</span></p>
     </div>
 </footer>
+
+<script>
+    const targetDate = new Date('May 15, 2026 00:00:00').getTime();
+
+const interval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    // Считаем время
+    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Выводим в HTML
+    document.getElementById('days').innerText = d.toString().padStart(2, '0');
+    document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+    document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
+    document.getElementById('seconds').innerText = s.toString().padStart(2, '0');
+
+    // Если время вышло
+    if (distance < 0) {
+        clearInterval(interval);
+        startTheChaos();
+    }
+}, 1000);
+
+function startTheChaos() {
+    const timer = document.getElementById('timer');
+    timer.classList.add('timer-shatter'); // Таймер "ломается"
+    
+    // Через 0.5 сек (после взрыва) показываем кнопки
+    setTimeout(() => {
+        // Тут ID или классы твоих кнопок, которые должны вылететь
+        const buttons = document.querySelectorAll('.hidden-until-launch');
+        buttons.forEach(btn => {
+            btn.style.display = 'block';
+            btn.classList.add('fly-in');
+        });
+    }, 500);
+}
+</script>
 
 </body>
 </html>
