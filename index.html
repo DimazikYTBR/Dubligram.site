@@ -656,32 +656,36 @@ function onTelegramAuth(user) {
 }
 
 function showUserProfile(user) {
-    // 1. Сохраняем данные, если их еще нет
-    if (!localStorage.getItem('dubligram_user')) {
-        localStorage.setItem('dubligram_user', JSON.stringify(user));
-        localStorage.setItem('dubligram_login_date', new Date().toLocaleDateString());
+    console.log("Запускаю профиль для:", user.first_name);
+
+    if (!localStorage.getItem('dubligram_login_date')) {
+        const today = new Date().toLocaleDateString();
+        localStorage.setItem('dubligram_login_date', today);
+        console.log("Дата сохранена:", today);
     }
 
-    // 2. Заполняем данные на экране
-    document.getElementById('user-name').innerText = user.first_name;
-    document.getElementById('user-photo').src = user.photo_url || 'https://telegram.org';
-    document.getElementById('user-joined').innerText = 'Joined: ' + localStorage.getItem('dubligram_login_date');
-    
-    // 3. Показываем профиль
-    document.getElementById('user-profile').style.display = 'flex';
+    const nameEl = document.getElementById('user-name');
+    const dateEl = document.getElementById('user-joined');
+    const photoEl = document.getElementById('user-photo');
 
-    // 4. ГЛАВНОЕ: Цикл скрытия кнопки (ждем её появления и удаляем)
-    let hideAttempts = 0;
-    const hideInterval = setInterval(() => {
-        const loginButton = document.querySelector('iframe[id^="telegram-login"]') || document.querySelector('.tg-login-button');
-        if (loginButton) {
-            loginButton.style.display = 'none';
-            loginButton.remove(); // Совсем удаляем, чтобы не мешалась
-            clearInterval(hideInterval);
+    if (nameEl) nameEl.innerText = user.first_name;
+    if (dateEl) dateEl.innerText = "Joined: " + localStorage.getItem('dubligram_login_date');
+    if (photoEl) photoEl.src = user.photo_url || 'https://telegram.org';
+
+    const profileBox = document.getElementById('user-profile');
+    if (profileBox) {
+        profileBox.style.setProperty('display', 'flex', 'important');
+        console.log("Блок профиля отображен!");
+    }
+
+    const hideBtn = setInterval(() => {
+        const btn = document.querySelector('iframe[id^="telegram-login"]') || document.querySelector('.tg-login-button');
+        if (btn) {
+            btn.style.display = 'none';
+            clearInterval(hideBtn);
         }
-        if (hideAttempts > 50) clearInterval(hideInterval); // Перестаем искать через 5 сек
-        hideAttempts++;
     }, 100);
+    setTimeout(() => clearInterval(hideBtn), 5000);
 }
 
 // При загрузке страницы
