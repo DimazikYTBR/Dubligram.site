@@ -38,9 +38,9 @@ header {
 
 .slider-container {
     width: 100%;
-    max-width: 1100px; /* Твоя ширина */
+    max-width: 1100px;
     margin: 40px auto;
-    overflow: hidden !important; /* ГАРАНТИРУЕТ, что вторая карточка скроется */
+    overflow: hidden !important;
     border-radius: 28px;
 }
 
@@ -48,7 +48,6 @@ header {
     display: flex;
     width: 100%;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    /* УБЕРИ gap: 20px, если он там есть, поставь 0 */
     gap: 0 !important; 
 }
 
@@ -56,10 +55,9 @@ header {
     flex: 0 0 100%;
     width: 100%;
     height: 450px;
-    border-radius: 28px !important; /* ВОТ ОНО! */
-    overflow: hidden; /* Чтобы фон внутри карточки не вылезал за скругление */
+    border-radius: 28px !important;
+    overflow: hidden;
     
-    /* Центровка контента (чтобы не как в прошлый раз) */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,7 +67,7 @@ header {
 
 @media (max-width: 850px) {
     .slide {
-        min-width: 90vw; /* На мобилках почти на весь экран */
+        min-width: 90vw;
         height: 400px;
     }
     .slider-track {
@@ -77,7 +75,6 @@ header {
     }
 }
 
-/* Текст внутри слайда */
 .slide h2 {
     font-size: 36px;
     margin-bottom: 10px;
@@ -112,7 +109,7 @@ header {
 .dots-island-container {
     display: flex;
     justify-content: center;
-    margin-top: 25px; /* Отступ от слайдера */
+    margin-top: 25px;
 }
 
 .slider-dots {
@@ -120,13 +117,12 @@ header {
     align-items: center;
     gap: 12px;
     padding: 8px 16px;
-    
-    /* Тот самый "стеклянный" остров */
-    background: rgba(255, 255, 255, 0.05); /* Легкий белый фон */
+
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 999px; /* Идеальная капсула */
+    border-radius: 999px;
     
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
@@ -134,17 +130,17 @@ header {
 .dot {
     width: 8px;
     height: 8px;
-    background: rgb(29, 29, 29); /* Неактивные точки чуть тусклее */
+    background: rgb(29, 29, 29);
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dot.active {
-    width: 22px; /* Растягиваем активную */
+    width: 22px;
     border-radius: 6px;
-    background: #007aff; /* Твой фирменный синий */
-    box-shadow: 0 0 15px rgba(0, 122, 255, 0.5); /* Легкое свечение */
+    background: #007aff;
+    box-shadow: 0 0 15px rgba(0, 122, 255, 0.5);
 }
 
 .studio-footer {
@@ -166,13 +162,11 @@ margin: 10px auto;
 border-radius: 20px; 
 }
 
-/* Сам текст */
 .studio-footer p {
     font-size: 18px;      
     letter-spacing: 0.5px;
 }
 
-/* Твоя студия */
 .studio-name {
     font-size: 18px;      
     font-weight: 700;     
@@ -196,7 +190,7 @@ border-radius: 20px;
 }
 
 .plus-title {
-    font-size: 84px; /* Огромный заголовок */
+    font-size: 84px;
     font-weight: 800;
     line-height: 0.9;
     letter-spacing: -4px;
@@ -206,14 +200,13 @@ border-radius: 20px;
 
 .plus-subtitle {
     font-size: 20px;
-    color: #86868b; /* Серый текст как на скрине */
+    color: #86868b;
     max-width: 500px;
     line-height: 1.4;
     text-align: center;
     margin: 0 auto;
 }
 
-/* Белая кнопка-капсула */
 .btn-meet {
     display: inline-block;
     background: #ffffff;
@@ -233,7 +226,7 @@ border-radius: 20px;
     background: #fff;
     color: #000;
     padding: 10px 22px;
-    border-radius: 25px; /* Настоящая капсула */
+    border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
@@ -260,11 +253,11 @@ border-radius: 20px;
     font-size: 16px;
     transition: 0.2s;
 }
-/* 4. Исправляем выпадающее меню */
+
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%; /* Вылетает ровно из-под хедера */
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
     margin-top: 10px;
@@ -278,14 +271,13 @@ border-radius: 20px;
 
 .dropdown:hover .dropdown-content { display: block; }
 
-/* 3. Чтобы меню не пропадало, когда ведешь мышку от кнопки к нему */
 .dropdown::after {
     content: '';
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    height: 25px; /* "Мостик" для мышки */
+    height: 25px;
 }
 
 .dropbtn {
@@ -296,18 +288,15 @@ border-radius: 20px;
     padding: 10px 22px;
     background: #161617;
     color: #000000;
-    border-radius: 25px; /* Настоящая капсула */
+    border-radius: 25px;
  }
 
-    /* СТИЛИ ВЫПАДАЮЩЕГО МЕНЮ */
     .dropdown { position: relative; display: inline-block; }
 
-/* Эффект при наведении на пункты внутри стекла */
 .menu-item:hover {
-    background-color: rgba(0, 0, 0, 0.05); /* Еле заметное выделение */
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
-    /* Появление при наведении */
     .dropdown:hover .dropdown-content { display: block; }
 
     .menu-item {
@@ -359,12 +348,10 @@ border-radius: 20px;
         letter-spacing: -1px;
     }
 
-    /* Для мобилок прячем меню, чтобы не ломалось */
     @media (max-width: 850px) {
         .nav-links { display: none; }
     }
 
-        /* ЗАГОЛОВОК ПО РЕФЕРЕНСУ */
         .main-title {
             font-size: 5.5rem; 
             font-weight: 800;
@@ -375,10 +362,9 @@ border-radius: 20px;
 
 .gradient-text {
     background: linear-gradient(90deg, #0047ff 0%, #00d1ff 100%);
-    
-    /* Добавь это: */
-    -webkit-background-clip: text; /* Обрезает фон по контуру букв */
-    -webkit-text-fill-color: transparent; /* Делает сами буквы прозрачными, чтобы был виден фон */
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
     
     font-size: 84px;
     font-weight: 800;
@@ -395,7 +381,6 @@ border-radius: 20px;
             letter-spacing: -3px;
         }
 
-        /* КНОПКА */
         .btn-get {
             margin: 50px 0;
             background: #000;
@@ -410,7 +395,6 @@ border-radius: 20px;
         }
         .btn-get:hover { transform: scale(1.05); }
 
-        /* БЛОКИ (КАРТОЧКИ) */
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -442,7 +426,6 @@ border-radius: 20px;
 <nav class="nav-links">
         <div class="dropdown">
             <a href="#" class="dropbtn">Use</a>
-            <!-- ТО САМОЕ ВЫПАДАЮЩЕЕ МЕНЮ -->
             <div class="dropdown-content">
                 <div class="menu-item">
                     <div class="icon">📦</div>
@@ -504,7 +487,7 @@ border-radius: 20px;
 
     <div class="slider-container">
     <div class="slider-track">
-        <!-- Карточка 1 -->
+
         <div class="slide" style="background: linear-gradient(135deg, #dee8e9 0%, #505050 100%);">
             <div class="slide-content">
                 <h2>Ghost Mode 👻</h2>
@@ -513,7 +496,7 @@ border-radius: 20px;
             </div>
             <img src="твой_дизайн_1.png" alt="" class="slide-img">
         </div>
-        <!-- Карточка 2 (для примера) -->
+
         <div class="slide" style="background: #efeff4;">
             <div class="slide-content" style="color: #000;">
                 <h2>Unique Badges 🎖️</h2>
@@ -521,7 +504,7 @@ border-radius: 20px;
                 <a href="#" class="slide-btn" style="background: #007aff; color: #fff;">Cool</a>
             </div>
         </div>
-        <!-- Карточка 3 -->
+
         <div class="slide" style="background: linear-gradient(135deg, #0084ff 0%, #2701fc 100%);">
             <div class="slide-content">
                 <h2>Elite Status 💎</h2>
@@ -531,8 +514,7 @@ border-radius: 20px;
             <img src="твой_дизайн_1.png" alt="" class="slide-img">
         </div>
     </div>
-    
-    <!-- Пагинация (точки как на скрине) -->
+
 <div class="dots-island-container">
     <div class="slider-dots">
         <div class="dot active" onclick="goToSlide(0)"></div>
@@ -555,11 +537,9 @@ border-radius: 20px;
 function goToSlide(index) {
     const track = document.querySelector('.slider-track');
     const dots = document.querySelectorAll('.dot');
-    
-    // Прыгаем ровно на 100% ширины за каждый слайд
+
     track.style.transform = `translateX(-${index * 100}%)`;
     
-    // Обновляем точки
     dots.forEach(dot => dot.classList.remove('active'));
     dots[index].classList.add('active');
 }

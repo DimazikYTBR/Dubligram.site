@@ -44,18 +44,18 @@ header {
 }
 
 #timer {
-    font-size: 84px !important; /* Ультимативный размер */
+    font-size: 84px !important;
     font-weight: 900 !important;
     color: #000;
     display: flex;
     justify-content: center;
     gap: 20px;
     margin: 40px 0;
-    font-variant-numeric: tabular-nums; /* Чтобы цифры не дергались */
+    font-variant-numeric: tabular-nums;
 }
 
 @media (max-width: 850px) {
-    #timer { font-size: 48px !important; gap: 10px; } /* Подгонка под мобилки */
+    #timer { font-size: 48px !important; gap: 10px; }
 }
 
 #timer-label {
@@ -66,14 +66,13 @@ header {
     font-weight: 700;
 }
 
-/* Класс, который JS добавит 15 мая */
 .timer-shatter {
     animation: shatter 0.5s forwards;
 }
 
 @keyframes shatter {
     0% { transform: scale(1); filter: blur(0); }
-    50% { transform: scale(1.2); filter: blur(2px); color: #ff3b30; } /* Вспышка красного */
+    50% { transform: scale(1.2); filter: blur(2px); color: #ff3b30; }
     100% { transform: scale(0); opacity: 0; display: none; }
 }
 
@@ -82,7 +81,6 @@ header {
     opacity: 0;
 }
 
-/* Анимация вылета кнопок (добавь этот класс своим скрытым кнопкам) */
 .fly-in {
     animation: flyIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1.2) forwards;
 }
@@ -94,9 +92,9 @@ header {
 
 .slider-container {
     width: 100%;
-    max-width: 1100px; /* Твоя ширина */
+    max-width: 1100px;
     margin: 40px auto;
-    overflow: hidden !important; /* ГАРАНТИРУЕТ, что вторая карточка скроется */
+    overflow: hidden !important;
     border-radius: 28px;
 }
 
@@ -104,7 +102,6 @@ header {
     display: flex;
     width: 100%;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    /* УБЕРИ gap: 20px, если он там есть, поставь 0 */
     gap: 0 !important; 
 }
 
@@ -112,10 +109,9 @@ header {
     flex: 0 0 100%;
     width: 100%;
     height: 450px;
-    border-radius: 28px !important; /* ВОТ ОНО! */
-    overflow: hidden; /* Чтобы фон внутри карточки не вылезал за скругление */
-    
-    /* Центровка контента (чтобы не как в прошлый раз) */
+    border-radius: 28px !important;
+    overflow: hidden;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,7 +121,7 @@ header {
 
 @media (max-width: 850px) {
     .slide {
-        min-width: 90vw; /* На мобилках почти на весь экран */
+        min-width: 90vw;
         height: 400px;
     }
     .slider-track {
@@ -133,7 +129,6 @@ header {
     }
 }
 
-/* Текст внутри слайда */
 .slide h2 {
     font-size: 36px;
     margin-bottom: 10px;
@@ -168,7 +163,7 @@ header {
 .dots-island-container {
     display: flex;
     justify-content: center;
-    margin-top: 25px; /* Отступ от слайдера */
+    margin-top: 25px;
 }
 
 .slider-dots {
@@ -176,13 +171,12 @@ header {
     align-items: center;
     gap: 12px;
     padding: 8px 16px;
-    
-    /* Тот самый "стеклянный" остров */
-    background: rgba(255, 255, 255, 0.05); /* Легкий белый фон */
+
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 999px; /* Идеальная капсула */
+    border-radius: 999px;
     
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
@@ -190,17 +184,17 @@ header {
 .dot {
     width: 8px;
     height: 8px;
-    background: rgb(29, 29, 29); /* Неактивные точки чуть тусклее */
+    background: rgb(29, 29, 29);
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dot.active {
-    width: 22px; /* Растягиваем активную */
+    width: 22px;
     border-radius: 6px;
-    background: #007aff; /* Твой фирменный синий */
-    box-shadow: 0 0 15px rgba(0, 122, 255, 0.5); /* Легкое свечение */
+    background: #007aff;
+    box-shadow: 0 0 15px rgba(0, 122, 255, 0.5);
 }
 .cta-group {
     display: flex;       
@@ -214,13 +208,11 @@ header {
     padding-bottom: 60px; 
 }
 
-/* Сам текст */
 .studio-footer p {
     font-size: 18px;      
     letter-spacing: 0.5px;
 }
 
-/* Твоя студия */
 .studio-name {
     font-size: 18px;      
     font-weight: 700;     
@@ -251,7 +243,6 @@ margin: 10px auto;
 border-radius: 20px; 
 }
 
-/* Центрируем Use */
 .nav-links {
     display: flex;
     gap: 7px;
@@ -266,23 +257,21 @@ border-radius: 20px;
     transition: 0.2s;
 }
 
-/* Кнопка Get Plus в стиле капсулы */
 .btn-wallet {
     background: #000;
     color: #fff;
     padding: 10px 22px;
-    border-radius: 25px; /* Настоящая капсула */
+    border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
     transition: 0.3s;
 }
 .btn-wallet:hover { transform: scale(1.05); }
-/* 4. Исправляем выпадающее меню */
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%; /* Вылетает ровно из-под хедера */
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
     margin-top: 10px;
@@ -296,28 +285,26 @@ border-radius: 20px;
 
 .dropdown:hover .dropdown-content { display: block; }
 
-/* 3. Чтобы меню не пропадало, когда ведешь мышку от кнопки к нему */
 .dropdown::after {
     content: '';
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    height: 25px; /* "Мостик" для мышки */
+    height: 25px;
 }
 
 .nav-links a:hover {
-    color: #86868b; /* Мягкий серый при наведении как у Apple */
+    color: #86868b;
 }
-    /* СТИЛИ ВЫПАДАЮЩЕГО МЕНЮ */
+  
     .dropdown { position: relative; display: inline-block; }
 
-/* Эффект при наведении на пункты внутри стекла */
 .menu-item:hover {
-    background-color: rgba(0, 0, 0, 0.05); /* Еле заметное выделение */
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
-    /* Появление при наведении */
+
     .dropdown:hover .dropdown-content { display: block; }
 
     .menu-item {
@@ -365,34 +352,32 @@ border-radius: 20px;
 }
 
 @media (max-width: 850px) {
-    /* Прячем старые элементы, чтобы не мешались сверху */
+
     .nav-links, .dropbtn, .dropdown {
         display: none !important;
     }
 
     @keyframes island-drop {
     0% {
-        /* В самом начале это маленькая точка за пределами экрана */
+
         transform: translate(-50%, 100px) scale(0.1);
         width: 60px;
         opacity: 0;
         border-radius: 50%;
     }
     40% {
-        /* Капля вылетает и становится видимой круглой точкой */
+
         transform: translate(-50%, -20px) scale(1.1);
         opacity: 1;
         border-radius: 50%;
     }
     100% {
-        /* В конце растягивается в твою финальную капсулу */
         transform: translate(-50%, 0) scale(1);
-        width: 280px; /* Твоя ширина острова */
+        width: 280px;
         border-radius: 999px;
     }
 }
 
-/* Анимация, когда остров уходит обратно в каплю и вниз */
 @keyframes island-hide {
     0% {
         transform: translate(-50%, 0) scale(1);
@@ -401,58 +386,53 @@ border-radius: 20px;
         border-radius: 999px;
     }
     60% {
-        transform: translate(-50%, -10px) scale(1.1); /* Небольшой "прыжок" перед уходом */
+        transform: translate(-50%, -10px) scale(1.1);
         border-radius: 50%;
         width: 60px;
     }
     100% {
-        transform: translate(-50%, 150px) scale(0.1); /* Улетает вниз в точку */
+        transform: translate(-50%, 150px) scale(0.1);
         opacity: 0;
     }
 }
 
-/* Настройки для десктопа (экран больше 851px) */
 @media (min-width: 851px) {
     .nav-links2 {
-        /* Применяем анимацию исчезновения */
+
         animation: island-hide 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        /* Указываем pointer-events: none, чтобы невидимый остров не мешал кликать */
+
         pointer-events: none;
     }
 }
 
 
 .nav-links2 {
-    /* Применяем анимацию при появлении */
     animation: island-drop 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    overflow: hidden; /* Чтобы контент внутри не вылезал во время растягивания */
+    overflow: hidden; 
 }
 
-    /* Активируем твой новый остров */
     .nav-links2 {
         display: flex !important;
         position: fixed !important;
-        bottom: 30px !important; /* ТУДО! ВНИЗ! */
+        bottom: 30px !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
-        
-        /* Стиль Dublikata Studio */
+  
         width: 280px;
         height: 65px;
-        background: rgba(255, 255, 255, 0.08); /* Стеклышко */
+        background: rgba(255, 255, 255, 0.08);
         backdrop-filter: blur(25px) saturate(180%);
         -webkit-backdrop-filter: blur(25px) saturate(180%);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 999px; /* Сочная капсула */
+        border-radius: 999px;
         
         justify-content: space-around;
         align-items: center;
-        z-index: 100000; /* Поверх всего */
+        z-index: 100000;
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         padding: 0 10px;
     }
 
-    /* Стили кнопок внутри .nav-links2 */
     .island-item {
         color: #000;
         text-decoration: none;
@@ -464,15 +444,13 @@ border-radius: 20px;
         -webkit-tap-highlight-color: transparent;
     }
 
-    /* Эффект нажатия пальцем */
     .island-item:active {
         transform: scale(0.85);
         opacity: 0.7;
     }
 
-    /* Подсветка активной кнопки */
     .island-item.active {
-        color: #007AFF; /* Твой синий Apple */
+        color: #007AFF;
     }
 }
 
@@ -482,7 +460,6 @@ border-radius: 20px;
             max-width: 950px;
         }
 
-        /* ЗАГОЛОВОК ПО РЕФЕРЕНСУ */
         .main-title {
             font-size: 5.5rem; 
             font-weight: 800;
@@ -506,7 +483,6 @@ border-radius: 20px;
             letter-spacing: -3px;
         }
 
-        /* КНОПКА */
         .btn-get {
             margin: 50px 0;
             background: #000;
@@ -521,7 +497,6 @@ border-radius: 20px;
         }
         .btn-get:hover { transform: scale(1.05); }
 
-        /* БЛОКИ (КАРТОЧКИ) */
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -543,22 +518,21 @@ border-radius: 20px;
         .footer-separator {
             height: 1px;
             width: 100%;
-            /* Мягкий градиент, как на вашем изображении */
             background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
-            margin-bottom: 30px; /* Отступ под линией */
+            margin-bottom: 30px; 
         }
 
         .footer-container {
             display: flex;
-            justify-content: space-between; /* Распределяем колонки равномерно */
+            justify-content: space-between;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            flex-wrap: wrap; /* Чтобы колонки переносились на маленьких экранах */
+            flex-wrap: wrap;
         }
 
         .footer-left, .footer-column, .footer-socials {
-            margin-bottom: 20px; /* Отступ между блоками на мобильных */
+            margin-bottom: 20px;
         }
 
 .dropbtn {
@@ -569,7 +543,7 @@ border-radius: 20px;
     padding: 10px 22px;
     background: #F2F2F7;
     color: #000;
-    border-radius: 25px; /* Настоящая капсула */
+    border-radius: 25px;
  }
 
         .footer-left p {
@@ -604,7 +578,7 @@ border-radius: 20px;
             display: inline-block;
             width: 34px;
             height: 34px;
-            background-color: #333; /* Заглушка для иконок */
+            background-color: #333;
             border-radius: 50%;
             margin-left: 10px;
         }
@@ -622,7 +596,7 @@ border-radius: 20px;
 <nav class="nav-links">
         <div class="dropdown">
             <a href="#" class="dropbtn">Use</a>
-            <!-- ТО САМОЕ ВЫПАДАЮЩЕЕ МЕНЮ -->
+
             <div class="dropdown-content">
                 <div class="menu-item">
                     <div class="icon">📦</div>
@@ -694,7 +668,7 @@ border-radius: 20px;
 
     <div class="slider-container">
     <div class="slider-track">
-        <!-- Карточка 1 -->
+
         <div class="slide" style="background: linear-gradient(135deg, #2af5ff 0%, #2196f3 100%);">
             <div class="slide-content">
                 <h2>iOS Design 🎨</h2>
@@ -703,7 +677,7 @@ border-radius: 20px;
             </div>
             <img src="твой_дизайн_1.png" alt="" class="slide-img">
         </div>
-        <!-- Карточка 2 (для примера) -->
+
         <div class="slide" style="background: #efeff4;">
             <div class="slide-content" style="color: #000;">
                 <h2>Dubligram Plus 💎</h2>
@@ -711,7 +685,7 @@ border-radius: 20px;
                 <a href="#" class="slide-btn" style="background: #007aff; color: #fff;">Get</a>
             </div>
         </div>
-        <!-- Карточка 3 -->
+
         <div class="slide" style="background: linear-gradient(135deg, #b89d25 0%, #f32121 100%);">
             <div class="slide-content">
                 <h2>Free Design 🍎</h2>
@@ -721,8 +695,7 @@ border-radius: 20px;
             <img src="твой_дизайн_1.png" alt="" class="slide-img">
         </div>
     </div>
-    
-    <!-- Пагинация (точки как на скрине) -->
+
 <div class="dots-island-container">
     <div class="slider-dots">
         <div class="dot active" onclick="goToSlide(0)"></div>
@@ -732,7 +705,7 @@ border-radius: 20px;
 </div>
 </div>
 <div class="hidden-until-launch">
-    <!-- ТЕ САМЫЕ БЛОКИ -->
+
     <div class="features">
         <div class="card">
             <h3>Ghost Mode 👻</h3>
@@ -786,10 +759,9 @@ const interval = setInterval(() => {
 }, 1000);
 
 function startTheChaos() {
-    // 1. Берем весь контейнер с таймером
+
     const timerContainer = document.getElementById('countdown-container');
-    
-    // 2. Эффект взрыва: увеличиваем, блюрим и растворяем
+
     timerContainer.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
     timerContainer.style.transform = 'scale(2)';
     timerContainer.style.filter = 'blur(20px)';
@@ -798,16 +770,12 @@ function startTheChaos() {
     setTimeout(() => {
         timerContainer.style.display = 'none';
 
-        // 3. Находим все элементы, которые мы спрятали классом .hidden-until-launch
         const hiddenStuff = document.querySelectorAll('.hidden-until-launch');
         
         hiddenStuff.forEach((el, index) => {
-            // Убираем скрывающий класс
             el.style.display = 'block';
             el.style.setProperty('display', 'block', 'important');
-            // Добавляем анимацию вылета (мы её прописывали во 2 шаге)
             el.style.animation = `flyIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1.2) forwards`;
-            // Можно добавить задержку, чтобы карточки вылетали по очереди
             el.style.animationDelay = `${index * 0.1}s`;
         });
     }, 800);
@@ -818,11 +786,9 @@ let currentSlide = 0;
 function goToSlide(index) {
     const track = document.querySelector('.slider-track');
     const dots = document.querySelectorAll('.dot');
-    
-    // Прыгаем ровно на 100% ширины за каждый слайд
+
     track.style.transform = `translateX(-${index * 100}%)`;
-    
-    // Обновляем точки
+
     dots.forEach(dot => dot.classList.remove('active'));
     dots[index].classList.add('active');
 }
