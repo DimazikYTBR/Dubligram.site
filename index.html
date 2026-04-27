@@ -656,27 +656,13 @@ function onTelegramAuth(user) {
 }
 
 function showUserProfile(user) {
-    console.log("Запускаю профиль для:", user.first_name);
+    const initial = user.first_name ? user.first_name.charAt(0).toUpperCase() : 'D';
 
-    if (!localStorage.getItem('dubligram_login_date')) {
-        const today = new Date().toLocaleDateString();
-        localStorage.setItem('dubligram_login_date', today);
-        console.log("Дата сохранена:", today);
-    }
+    document.getElementById('user-initial').innerText = initial;
+    document.getElementById('user-name').innerText = user.first_name;
+    document.getElementById('user-joined').innerText = 'Joined: ' + (localStorage.getItem('dubligram_login_date') || new Date().toLocaleDateString());
 
-    const nameEl = document.getElementById('user-name');
-    const dateEl = document.getElementById('user-joined');
-    const photoEl = document.getElementById('user-photo');
-
-    if (nameEl) nameEl.innerText = user.first_name;
-    if (dateEl) dateEl.innerText = "Joined: " + localStorage.getItem('dubligram_login_date');
-    if (photoEl) photoEl.src = user.photo_url || 'https://telegram.org';
-
-    const profileBox = document.getElementById('user-profile');
-    if (profileBox) {
-        profileBox.style.setProperty('display', 'flex', 'important');
-        console.log("Блок профиля отображен!");
-    }
+    document.getElementById('user-profile').style.display = 'flex';
 
     const hideBtn = setInterval(() => {
         const btn = document.querySelector('iframe[id^="telegram-login"]') || document.querySelector('.tg-login-button');
@@ -685,7 +671,7 @@ function showUserProfile(user) {
             clearInterval(hideBtn);
         }
     }, 100);
-    setTimeout(() => clearInterval(hideBtn), 5000);
+    setTimeout(() => clearInterval(hideBtn), 3000);
 }
 
 // При загрузке страницы
@@ -712,14 +698,13 @@ window.onload = function() {
 </script>
 <div id="auth-section">
 <div id="user-profile" style="display: none; align-items: center; gap: 10px; margin-left: 15px;">
-    <img id="user-photo" 
-     src="https://telegram.org" 
-     loading="lazy" 
-     decoding="async" 
-     style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #007AFF; object-fit: cover;">
-    <div style="display: flex; flex-direction: column; justify-content: center;">
-        <span id="user-name" style="font-weight: 700; font-size: 14px; color: #000 !important; display: block;"></span>
-        <span id="user-joined" style="font-size: 10px; color: #666 !important; display: block; white-space: nowrap;"></span>
+    <div id="user-avatar-circle" style="width: 35px; height: 35px; border-radius: 50%; background: #007AFF; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);">
+        <span id="user-initial"></span>
+    </div>
+    
+    <div style="display: flex; flex-direction: column;">
+        <span id="user-name" style="font-weight: 700; font-size: 14px; color: #000;"></span>
+        <span id="user-joined" style="font-size: 10px; color: #666;"></span>
     </div>
 </div>
 </div>
