@@ -666,6 +666,15 @@ function showUserProfile(user) {
     const joinDate = localStorage.getItem('dubligram_login_date');
     console.log(`Titanium User ${user.first_name} joined us on ${joinDate}`);
 }
+
+window.onload = function() {
+    const savedUser = localStorage.getItem('dubligram_user');
+    
+    if (savedUser) {
+        const user = JSON.parse(savedUser);
+        showUserProfile(user);
+    }
+};
 </script>
 <div id="user-profile" style="display: none; align-items: center; gap: 10px;">
     <img id="user-photo" src="" style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #007AFF;">
