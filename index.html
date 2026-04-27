@@ -102,28 +102,41 @@ header {
 }
 
 .slider-container {
-    max-width: 1100px; /* Чтобы не разносило на весь экран */
+    max-width: 1100px; /* Ограничиваем ширину, чтобы не было "колбасы" */
     margin: 40px auto;
-    overflow: hidden; /* Чтобы лишние слайды не торчали */
+    overflow: hidden; /* Чтобы лишнее не торчало */
     padding: 0 20px;
 }
 
 .slider-track {
     display: flex;
-    gap: 30px; /* ВОТ ТУТ МАГИЯ: отступ между карточками */
+    gap: 20px; /* Расстояние между карточками */
+    transition: transform 0.5s ease;
 }
 
 .slide {
-    min-width: calc(100% - 40px); /* Чтобы карточка занимала почти всё место, но было видно край следующей */
+    /* Чтобы карточка была похожа на карточку, а не на полоску */
+    min-width: 85%; 
+    height: 450px; /* Увеличиваем высоту! */
     border-radius: 24px;
-    /* Убедись, что у тебя стоит flex-shrink: 0, чтобы они не сжимались */
-    flex-shrink: 0;
+    padding: 40px;
+    flex-shrink: 0; /* Чтобы не сжимались в кашу */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем текст внутри */
+    position: relative;
 }
 
-.slide-content h2 {
-    font-size: 32px;
-    font-weight: 800;
-    margin-bottom: 15px;
+/* Текст внутри слайда */
+.slide h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.slide p {
+    font-size: 18px;
+    opacity: 0.8;
+    margin-bottom: 30px;
 }
 
 .slide-btn {
