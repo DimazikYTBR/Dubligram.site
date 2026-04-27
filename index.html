@@ -656,17 +656,45 @@ function onTelegramAuth(user) {
 }
 
 function showUserProfile(user) {
+    // 1. Сохраняем данные, если их еще нет
+    if (!localStorage.getItem('dubligram_user')) {
+        localStorage.setItem('dubligram_user', JSON.stringify(user));
+        localStorage.setItem('dubligram_login_date', new Date().toLocaleDateString());
+    }
+
+    // 2. Заполняем данные на экране
     document.getElementById('user-name').innerText = user.first_name;
     document.getElementById('user-photo').src = user.photo_url || 'https://telegram.org';
-
-    let joinDate = localStorage.getItem('dubligram_login_date');
-    if (!joinDate) {
-        joinDate = new Date().toLocaleDateString();
-        localStorage.setItem('dubligram_login_date', joinDate);
-    }
-    document.getElementById('user-joined').innerText = 'Joined: ' + joinDate;
-
+    document.getElementById('user-joined').innerText = 'Joined: ' + localStorage.getItem('dubligram_login_date');
+    
+    // 3. Показываем профиль
     document.getElementById('user-profile').style.display = 'flex';
+
+    // 4. ГЛАВНОЕ: Цикл скрытия кнопки (ждем её появления и удаляем)
+    let hideAttempts = 0;
+    const hideInterval = setInterval(() => {
+        const loginButton = document.querySelector('iframe[id^="telegram-login"]') || document.querySelector('.tg-login-button');
+        if (loginButton) {
+            loginButton.style.display = 'none';
+            loginButton.remove(); // Совсем удаляем, чтобы не мешалась
+            clearInterval(hideInterval);
+        }
+        if (hideAttempts > 50) clearInterval(hideInterval); // Перестаем искать через 5 сек
+        hideAttempts++;
+    }, 100);
+}
+
+// При загрузке страницы
+window.addEventListener('load', () => {
+    const savedUser = localStorage.getItem('dubligram_user');
+    if (savedUser) {
+        showUserProfile(JSON.parse(savedUser));
+    }
+});
+
+// Эту функцию вызываем при ПЕРВОМ входе через data-onauth
+function onTelegramAuth(user) {
+    showUserProfile(user);
 }
 
 window.onload = function() {
@@ -678,13 +706,16 @@ window.onload = function() {
     }
 };
 </script>
-<div id="user-profile" style="display: none; align-items: center; gap: 10px;">
-    <img id="user-photo" src="" style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #007AFF;">
-    <div style="display: flex; flex-direction: column;">
-        <span id="user-name" style="font-weight: 600; font-size: 14px; color: #000; line-height: 1.2;"></span>
-        <span id="user-joined" style="font-size: 10px; color: rgba(0,0,0,0.5);"></span>
+<div id="auth-section">
+    <div id="user-profile" style="display: none; align-items: center; gap: 10px;">
+        <img id="user-photo" src="" style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid #007AFF;">
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+            <span id="user-name" style="font-weight: 600; font-size: 14px; color: #000; line-height: 1.2;"></span>
+            <span id="user-joined" style="font-size: 9px; color: rgba(0,0,0,0.5); white-space: nowrap;"></span>
+        </div>
     </div>
 </div>
+
     </div>
 </header>
 
