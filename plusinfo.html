@@ -36,6 +36,117 @@ header {
     z-index: 1000;
 }
 
+.slider-container {
+    width: 100%;
+    max-width: 1100px; /* Твоя ширина */
+    margin: 40px auto;
+    overflow: hidden !important; /* ГАРАНТИРУЕТ, что вторая карточка скроется */
+    border-radius: 28px;
+}
+
+.slider-track {
+    display: flex;
+    width: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    /* УБЕРИ gap: 20px, если он там есть, поставь 0 */
+    gap: 0 !important; 
+}
+
+.slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 450px;
+    border-radius: 28px !important; /* ВОТ ОНО! */
+    overflow: hidden; /* Чтобы фон внутри карточки не вылезал за скругление */
+    
+    /* Центровка контента (чтобы не как в прошлый раз) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@media (max-width: 850px) {
+    .slide {
+        min-width: 90vw; /* На мобилках почти на весь экран */
+        height: 400px;
+    }
+    .slider-track {
+        padding-left: 5%;
+    }
+}
+
+/* Текст внутри слайда */
+.slide h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.slide p {
+    font-size: 18px;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.slide-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.dots-island-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px; /* Отступ от слайдера */
+}
+
+.slider-dots {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    
+    /* Тот самый "стеклянный" остров */
+    background: rgba(255, 255, 255, 0.05); /* Легкий белый фон */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px; /* Идеальная капсула */
+    
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: rgb(29, 29, 29); /* Неактивные точки чуть тусклее */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dot.active {
+    width: 22px; /* Растягиваем активную */
+    border-radius: 6px;
+    background: #007aff; /* Твой фирменный синий */
+    box-shadow: 0 0 15px rgba(0, 122, 255, 0.5); /* Легкое свечение */
+}
+
 .studio-footer {
     margin-top: 100px;    
     padding-bottom: 60px; 
@@ -391,7 +502,45 @@ border-radius: 20px;
     <a href="#" class="btn-meet">More about Dubligram Plus</a>
 </div>
 
-
+    <div class="slider-container">
+    <div class="slider-track">
+        <!-- Карточка 1 -->
+        <div class="slide" style="background: linear-gradient(135deg, #dee8e9 0%, #505050 100%);">
+            <div class="slide-content">
+                <h2>Ghost Mode 👻</h2>
+                <p>Read messages incognito. Invisible status for Plus users.</p>
+                <a href="#" class="slide-btn">Install</a>
+            </div>
+            <img src="твой_дизайн_1.png" alt="" class="slide-img">
+        </div>
+        <!-- Карточка 2 (для примера) -->
+        <div class="slide" style="background: #efeff4;">
+            <div class="slide-content" style="color: #000;">
+                <h2>Unique Badges 🎖️</h2>
+                <p>Get an exclusive badge next to your name to stand out as a premium supporter.</p>
+                <a href="#" class="slide-btn" style="background: #007aff; color: #fff;">Get</a>
+            </div>
+        </div>
+        <!-- Карточка 3 -->
+        <div class="slide" style="background: linear-gradient(135deg, #0084ff 0%, #2701fc 100%);">
+            <div class="slide-content">
+                <h2>Elite Status 💎</h2>
+                <p>Join the chosen ones. Dubligram Plus is a statement of style, speed, and real tech independence.</p>
+                <a href="#" class="slide-btn">Cool</a>
+            </div>
+            <img src="твой_дизайн_1.png" alt="" class="slide-img">
+        </div>
+    </div>
+    
+    <!-- Пагинация (точки как на скрине) -->
+<div class="dots-island-container">
+    <div class="slider-dots">
+        <div class="dot active" onclick="goToSlide(0)"></div>
+        <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="dot" onclick="goToSlide(2)"></div>
+    </div>
+</div>
+</div>
 
     <!-- ТЕ САМЫЕ БЛОКИ -->
     <div class="features">
@@ -416,6 +565,20 @@ border-radius: 20px;
         <p class="brand">Design by <span class="studio-name">Dublikata Studio</span></p>
     </div>
 </footer>
+<script>
+    let currentSlide = 0;
+
+function goToSlide(index) {
+    const track = document.querySelector('.slider-track');
+    const dots = document.querySelectorAll('.dot');
     
+    // Прыгаем ровно на 100% ширины за каждый слайд
+    track.style.transform = `translateX(-${index * 100}%)`;
+    
+    // Обновляем точки
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+}
+</script>
 </body>
 </html>
