@@ -725,6 +725,13 @@ window.onload = function() {
         showUserProfile(user);
     }
 };
+
+function logout() {
+    localStorage.removeItem('dubligram_user');
+    localStorage.removeItem('dubligram_login_date');
+
+    window.location.reload();
+}
 </script>
 <div id="auth-section">
 <div id="user-profile" style="display: none; align-items: center; gap: 10px; margin-left: 15px;">
