@@ -687,22 +687,19 @@ function showUserProfile(user) {
     const userJoinedElem = document.getElementById('user-joined');
     const profileContainer = document.getElementById('user-profile');
     const loginWrapper = document.getElementById('tg-login-wrapper');
-
-    document.getElementById('user-name').innerText = user.first_name;
-    document.getElementById('user-joined').innerText = 'Joined: ' + (localStorage.getItem('dubligram_login_date') || new Date().toLocaleDateString());
-
     const letterElem = document.getElementById('user-letter');
-    if (letterElem) {
-        letterElem.innerText = user.first_name.charAt(0).toUpperCase();
+
+    if (userNameElem) {
+        userNameElem.innerText = user.first_name;
     }
 
-    document.getElementById('user-profile').style.display = 'flex';
-    document.getElementById('tg-login-wrapper').style.display = 'none';
-
-    if (userNameElem) userNameElem.innerText = user.first_name;
     if (userJoinedElem) {
         const date = localStorage.getItem('dubligram_login_date') || new Date().toLocaleDateString();
         userJoinedElem.innerText = 'Joined: ' + date;
+    }
+
+    if (letterElem) {
+        letterElem.innerText = user.first_name.charAt(0).toUpperCase();
     }
 
     if (profileContainer) profileContainer.style.display = 'flex';
