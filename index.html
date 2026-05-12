@@ -798,7 +798,7 @@ window.onload = function() {
 </footer>
 
 <script>
-const targetDate = new Date('2026-05-15T00:00:00+03:00').getTime();
+const targetDate = new Date('2026-05-11T00:00:00+03:00').getTime();
 
 const interval = setInterval(() => {
     const now = new Date().getTime();
@@ -828,6 +828,7 @@ function startTheChaos() {
     timerContainer.style.transform = 'scale(2)';
     timerContainer.style.filter = 'blur(20px)';
     timerContainer.style.opacity = '0';
+    document.body.style.animation = 'shake 0.5s infinite';
 
     setTimeout(() => {
         timerContainer.style.display = 'none';
