@@ -726,12 +726,6 @@ window.onload = function() {
     }
 };
 
-function logout() {
-    localStorage.removeItem('dubligram_user');
-    localStorage.removeItem('dubligram_login_date');
-
-    window.location.reload();
-}
 </script>
 <div id="auth-section">
 <div id="user-profile" style="display: none; align-items: center; gap: 10px; margin-left: 15px;">
@@ -740,12 +734,6 @@ function logout() {
         <span id="user-joined" style="font-size: 10px; color: #666;"></span>
     </div>
 </div>
-</div>
-
-<div id="user-profile" style="display: none;">
-    <span id="user-name"></span>
-    <span id="user-joined"></span>
-    <button onclick="logout()">Выйти</button>
 </div>
 
     </div>
