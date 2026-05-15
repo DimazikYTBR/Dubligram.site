@@ -764,13 +764,6 @@ window.onload = function() {
     </div>
 </header>
 
-    <div id="countdown-container">
-<div id="timer">
-    <span id="days">00</span>:<span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
-</div>
-    <p id="timer-label">BEFORE LAUNCHING DUBLIGRAM</p>
-</div>
-
 <div class="hidden-until-launch">
     <div class="hero">
         <h1 class="main-title">
@@ -841,51 +834,6 @@ window.onload = function() {
 </footer>
 
 <script>
-    const targetDate = new Date('May 15, 2026 00:00:00').getTime();
-
-const interval = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById('days').innerText = d.toString().padStart(2, '0');
-    document.getElementById('hours').innerText = h.toString().padStart(2, '0');
-    document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
-    document.getElementById('seconds').innerText = s.toString().padStart(2, '0');
-
-    if (distance < 0) {
-        clearInterval(interval);
-        startTheChaos();
-    }
-}, 1000);
-
-function startTheChaos() {
-
-    const timerContainer = document.getElementById('countdown-container');
-
-    timerContainer.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-    timerContainer.style.transform = 'scale(2)';
-    timerContainer.style.filter = 'blur(20px)';
-    timerContainer.style.opacity = '0';
-
-    setTimeout(() => {
-        timerContainer.style.display = 'none';
-
-        const hiddenStuff = document.querySelectorAll('.hidden-until-launch');
-        
-        hiddenStuff.forEach((el, index) => {
-            el.style.display = 'block';
-            el.style.setProperty('display', 'block', 'important');
-            el.style.animation = `flyIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1.2) forwards`;
-            el.style.animationDelay = `${index * 0.1}s`;
-        });
-    }, 800);
-}
-
 let currentSlide = 0;
 
 function goToSlide(index) {
